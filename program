@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+
+
+void encode(char str[]) {
+    for(int i = 0; str[i] != '\0'; i++) {
+        str[i] = str[i] + 1;
+    }
+}
+
+
+void decode(char str[]) {
+    for(int i = 0; str[i] != '\0'; i++) {
+        str[i] = str[i] - 1;
+    }
+}
+
+int main() {
+    char input[100];
+    char choice;
+
+    printf("Enter the password: ");
+    scanf("%s", input);
+
+    printf("Choose action - [e]ncode / [d]ecode: ");
+    scanf(" %c", &choice);
+
+    if(choice == 'e' || choice == 'E') {
+        encode(input);
+        printf("Encoded password: %s\n", input);
+    } else if(choice == 'd' || choice == 'D') {
+        decode(input);
+        printf("Decoded password: %s\n", input);
+    } else {
+        printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
